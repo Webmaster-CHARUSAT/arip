@@ -112,6 +112,11 @@
          border-radius: 8px;
          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for style */
       }
+      @keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(7, 255, 48, 0.6); }
+  70% { box-shadow: 0 0 0 10px rgba(24, 152, 184, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
+}
       </style>
       <!--<script src="https://eequeuestorage.blob.core.windows.net/staticfiles/charusat/ee-form-widget/form-2/widget.js"></script>-->
    </head>
@@ -266,8 +271,24 @@
                   </div>
                   <div class="collapse navbar-collapse edu-nav main-menu" id="bs-example-navbar-collapse-1">
                      <ul class="nav navbar-nav pull-right">
+
                         <li class="active"><a data-scroll="" href="index.html">Home</a></li>
-                        <li><a data-scroll="" href="https://admission.charusat.ac.in" target="_blank">Admission</a></li>
+                        <li  
+                                                    style="background: linear-gradient(60deg, #39ba7bff, #3ec9afff);
+                                                      border-radius:6px;
+                                                      animation: pulse 1.5s infinite;
+                                                      list-style:none;
+                                                      padding:5px 12px;
+                                                      display:inline-block;">
+                                                <a data-scroll="" href="chapcon.html" 
+                                                   style="color:#000;
+                                                            font-weight:bold;
+                                                            text-decoration:none;
+                                                            display:inline-block;">
+                                                   Chapcon - National Conference 
+                                                </a>
+                        </li>
+                         <li><a data-scroll="" href="https://admission.charusat.ac.in" target="_blank">Admission</a></li>
                         <li>
                            <a data-scroll="" href="#programs">Programs</a>
                            <!-- dropdwon start 
