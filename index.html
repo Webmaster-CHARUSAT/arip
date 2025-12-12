@@ -117,6 +117,71 @@
   70% { box-shadow: 0 0 0 10px rgba(24, 152, 184, 0); }
   100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
 }
+
+:root{
+--lsx-accent:#2563eb;
+--lsx-bg1:#071124;
+--lsx-bg2:#081827;
+--lsx-card:rgba(255,255,255,0.04);
+--lsx-glass:rgba(255,255,255,0.02);
+--lsx-radius:16px;
+--lsx-maxw:1100px;
+--lsx-gap:22px;
+}
+
+
+
+/* Center container */
+#lsx-wrapper{
+width:100%;max-width:var(--lsx-maxw);margin:0 auto;
+background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.008));
+border-radius:20px;padding:28px;border:1px solid rgba(255,255,255,0.03);
+box-shadow:0 20px 60px rgba(2,6,23,0.7);
+}
+
+
+#lsx-header{display:flex;gap:16px;align-items:center;margin-bottom:18px}
+#lsx-logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#60a5fa,#34d399);display:flex;align-items:center;justify-content:center;color:#031022;font-weight:700;font-size:16px}
+#lsx-title{margin:0;font-size:40px;align-self:flex-end;font-weight:800;}
+#lsx-sub{color:#bcd6ff9a;font-size:13px}
+
+
+#lsx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--lsx-gap)}
+@media (max-width:980px){ #lsx-grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:640px){ #lsx-grid{grid-template-columns:1fr} #lsx-wrapper{padding:18px} }
+
+
+.lsx-card{background:var(--lsx-card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+.lsx-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.lsx-card-title{font-weight:600}
+
+
+.lsx-controls{display:flex;gap:8px}
+.lsx-btn{background:transparent;border-radius:10px;padding:6px 9px;font-weight:700;border:1px solid rgba(255,255,255,0.04);cursor:pointer;color:inherit}
+
+
+.lsx-showcase{position:relative;overflow:hidden;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+.lsx-slides{position:relative;height:190px}
+.lsx-slide{position:absolute;inset:0;opacity:0;transition:opacity .5s ease,transform .6s ease}
+.lsx-slide.lsx-active{opacity:1;position:relative}
+.lsx-slide img{width:100%;height:190px;object-fit:cover;border-radius:10px;transition:transform .6s ease}
+
+
+.lsx-slide.lsx-active img{animation:lsx-drift 9s ease-in-out infinite}
+@keyframes lsx-drift{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+
+
+.lsx-dots{display:flex;gap:8px;justify-content:center;padding:10px 6px}
+.lsx-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.12);cursor:pointer;border:1px solid rgba(255,255,255,0.03)}
+.lsx-dot.lsx-active{background:var(--lsx-accent);box-shadow:0 6px 18px rgba(37,99,235,0.14)}
+
+
+.lsx-thumbs{display:flex;gap:8px;padding-top:10px;overflow-x:auto}
+.lsx-thumbs img{width:64px;height:44px;object-fit:cover;border-radius:8px;cursor:pointer;opacity:.72;border:2px solid transparent}
+.lsx-thumbs img.lsx-active{opacity:1;border-color:var(--lsx-accent)}
+
+
+#lsx-footer{text-align:center;margin-top:14px;color:#a9c4ffcc;font-size:13px}
       </style>
       <!--<script src="https://eequeuestorage.blob.core.windows.net/staticfiles/charusat/ee-form-widget/form-2/widget.js"></script>-->
    </head>
@@ -322,27 +387,18 @@
                         <li>
                            <a data-scroll href="">Research</a>
                            <ul class="list-unstyled dropdown">
-                              <li><a href="files/Grants-2024.pdf">Grants</a></li>
+                              <li><a href="files/Grants-2025.pdf">Grants</a></li>
                               <li><a href="files/phdprojects.pdf">Phd Projects</a></li>
                               <li><a href="files/pgprojects.pdf">PG Projects</a></li>
                               <li><a href="files/ugprojects.pdf">UG Projects</a></li>
-                              <li><a href="publication.html">Publications</a></li>
+                              <li><a href="files/publication.pdf">Publications</a></li>
                               <li><a href="thrust_area.html">Thrust Area</a></li>
                            </ul>
                         </li>
                         <li>
-                           <a data-scroll href="">Facilities</a>
-                           <ul class="list-unstyled dropdown">
-                              <li><a href="Facilities.html#ictresources">ICT Resources</a></li>
-                              <li>
-                                 <a href="Facilities.html#lab">Laboratories</a>
-                                 <!--<ul class="dropdown-list_2 list-unstyled">
-                                    <li><a href="#">Biological Sciences</a></li>
-                                    <li><a href="#">Chemical Sciences</a></li>
-                                    </ul>-->
-                              </li>
-                              <li><a href="Facilities.html#testing">Testing Facilities</a></li>
-                           </ul>
+                           <a data-scroll href="#Facilities">Facilities</a>
+                          
+                           
                         </li>
                         <li>
                            <a data-scroll href="">Student's Corner</a>
@@ -770,20 +826,7 @@
       </section>
       <!-- Ends: . -->
       <!-- video section-->
-      <section class="video-main-area video">
-         <div class="container">
-            <div class="row">
-               <div class="col-sm-12 video-play-btn">
-               
-                  <a href="https://www.youtube.com/embed/PdpuaQNgDSc?si=FT8TYpwxn6NUpspb&amp;start=315" class="video-iframe"><i class="fa fa-play"></i></a>
-               </div>
-               <div class="video-content">
-                  <h2>Take a Tour of ARIP</h2>
-               </div>
-               <!-- ends: .section-header -->				
-            </div>
-         </div>
-      </section>
+     
       <!--<section class="Courses-area home_version_03" id="programs">
          <div class="container">
          
@@ -884,7 +927,7 @@
                   <div class="col-sm-3 counters-item">
                      <div class="section counter-box">
                         <i class="fa fa-group scalar_item"></i>
-                        <div class="project-count counter">554</div>
+                        <div class="project-count counter">968</div>
                         <span>Alumni</span>
                      </div>
                   </div>
@@ -905,7 +948,7 @@
                   <div class="col-sm-3 counters-item">
                      <div class="section counter-box">
                         <i class="fa  fa-graduation-cap scalar_item" ></i>
-                        <div class="project-count counter">143</div>
+                        <div class="project-count counter">155</div>
                         <span>Higher Studies</span>
                      </div>
                   </div>
@@ -915,29 +958,54 @@
                   <div class="col-sm-3 counters-item">
                      <div class="section counter-box">
                         <i class="fa fa-black-tie scalar_item"></i>
-                        <div class="project-count counter">9</div>
+                        <div class="project-count counter">10</div>
                         <span>ENTREPRENEURS</span>
                      </div>
                   </div>
                   <div class="col-sm-3 counters-item">
                      <div class="section counter-box">
                         <i class="fa fa-user scalar_item" ></i>
-                        <div class="project-count counter">11</div>
+                        <div class="project-count counter">16</div>
                         <span>Academic Tie up with Hospital</span>
                      </div>
                   </div>
                   <div class="col-sm-3 counters-item">
                      <div class="section counter-box">
                         <i class="fa fa-newspaper-o scalar_item"></i>
-                        <div class="project-count counter">52</div>
+                        <div class="project-count counter">77</div>
                         <span>Publications</span>
                      </div>
                   </div>
                   <div class="col-sm-3 counters-item">
                      <div class="section counter-box">
                         <i class="fa fa-money scalar_item" ></i>
-                        <div class="project-count counter">42</div>
+                        <div class="project-count counter">44</div>
                         <span>No. of Grants</span>
+                     </div>
+                  </div>
+                  
+               </div>
+               <br>
+               <div class="row">
+                  <div class="col-sm-3 counters-item">
+                     <div class="section counter-box">
+                        <i class="fa fa-money scalar_item" ></i>
+                        <div class="project-count counter">01</div>
+                        <span>Copyrights</span>
+                     </div>
+                  </div>
+                  <div class="col-sm-3 counters-item">
+                     <div class="section counter-box">
+                        <i class="fa fa-newspaper-o scalar_item"></i>
+                        <div class="project-count counter">03</div>
+                        <span>Book Chapter</span>
+                     </div>
+                  </div>
+                  <div class="col-sm-3 counters-item">
+                     <div class="section counter-box">
+                        <i class="fa  fa-flask scalar_item" ></i>
+                        <div class="project-count counter">02</div>
+                        <span>Patent</span>
                      </div>
                   </div>
                </div>
@@ -1124,6 +1192,91 @@
             </div>
          </section>
          <!-- ./ End Student Parent Say section -->
+      </div>
+
+      <div id="lsx-wrapper">
+      <div id="lsx-header">
+         
+         <div id='Facilities'>
+         <h1 id="lsx-title">Facilities </h1>
+        
+         </div>
+         </div>
+      <div id="lsx-grid">
+
+
+      <!-- LAB 1 -->
+      <section class="lsx-card" id="lsx-lab1">
+      <div class="lsx-card-header">
+      <div class="lsx-card-title">ICT</div>
+      <div class="lsx-controls">
+      <button class="lsx-btn lsx-prev">◀</button>
+      <button class="lsx-btn lsx-next">▶</button>
+      </div>
+      </div>
+
+
+      <div class="lsx-showcase" tabindex="0">
+      <div class="lsx-slides">
+      <div class="lsx-slide lsx-active"><img src="images/labs/ICT/CALL Lab.jpg"></div>
+      <div class="lsx-slide"><img src="images/labs/ICT/Classroom 2.jpg"></div>
+      <div class="lsx-slide"><img src="images/labs/ICT/Conference room.JPG"></div>
+      </div>
+      <div class="lsx-dots"></div>
+      <div class="lsx-thumbs"></div>
+      </div>
+      </section>
+
+
+      <!-- LAB 2 -->
+      <section class="lsx-card" id="lsx-lab2">
+      <div class="lsx-card-header">
+      <div class="lsx-card-title">Laboratories</div>
+      <div class="lsx-controls">
+      <button class="lsx-btn lsx-prev">◀</button>
+      <button class="lsx-btn lsx-next">▶</button>
+      </div>
+      </div>
+
+
+      <div class="lsx-showcase" tabindex="0">
+      <div class="lsx-slides">
+      <div class="lsx-slide lsx-active"><img src="images/labs/Labs/Anatomy lab.JPG">Anatomy lab</div>
+      <div class="lsx-slide"><img src="images/labs/Labs/Physiology Lab (1).jpg"> Physiology Lab</div>
+      <div class="lsx-slide"><img src="images/labs/Labs/Department of Paediatrics.JPG"> Department of Paediatrics</div>
+      <div class="lsx-slide"><img src="images/labs/Labs/Exercise Therapy Lab.jpg">Exercise Therapy Lab</div>
+      </div>
+      <div class="lsx-dots"></div>
+      <div class="lsx-thumbs"></div>
+      </div>
+      </section>
+
+
+      <!-- LAB 3 -->
+      <section class="lsx-card" id="lsx-lab3">
+      <div class="lsx-card-header">
+      <div class="lsx-card-title">Teaching and Clinical Facilities</div>
+      <div class="lsx-controls">
+      <button class="lsx-btn lsx-prev">◀</button>
+      <button class="lsx-btn lsx-next">▶</button>
+      </div>
+      </div>
+
+
+      <div class="lsx-showcase" tabindex="0">
+      <div class="lsx-slides">
+      <div class="lsx-slide lsx-active"><img src="images/labs/Teaching and Clinical Facilities/Back-leg-chest dynamometer.png">Back-leg-chest Dynamometer</div>
+      <div class="lsx-slide lsx-active"><img src="images/labs/Teaching and Clinical Facilities/Body Composition Analyzer.jpg">Body Composition Analyzer</div>
+      <div class="lsx-slide lsx-active"><img src="images/labs/Teaching and Clinical Facilities/Tilt table training.png">Tilt table training</div>
+      
+      </div>
+      <div class="lsx-dots"></div>
+      <div class="lsx-thumbs"></div>
+      </div>
+      </section>
+
+
+      </div>
       </div>
       <div class="home_version_02">
       <!-- Teachers Area section -->
@@ -1840,15 +1993,21 @@
                                     <h5><i class="fa fa-link"></i> Career</h5>
                                  </a>
                               </li>
-                              <br/>
                             
-                              <br/>
                               <li>
-                                 <a href="#">
-                                    <h5><i class="fa fa-link"></i> IQAC</h5>
+                                <a href="https://www.charusat.ac.in/documents/pdfs/data_1/1-4-2/1.4.2_FMS_ARIP_23-24.pdf">
+                                    <h5><i class="fa fa-link"></i> IQAC feedback Analysis</h5>
                                  </a>
                               </li>
                            </ul>
+                        </div>
+                         <div class="col-lg-6">
+      
+                           <iframe 
+                              src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d117867.60503086862!2d72.73784398194752!3d22.602928775341717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x395e50c6c9b73889%3A0x6563fe7e2336e5b1!2sJR3C%2B53H%2C%20Anand%2C%20Gujarat%20388421!3m2!1d22.6029484!2d72.8202438!5e0!3m2!1sen!2sin!4v1758634220808!5m2!1sen!2sin"
+                              width="100%" height="350px" style="border:0; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1);" 
+                              allowfullscreen="" loading="lazy">
+                           </iframe>
                         </div>
                      </div>
                   </div>
@@ -2048,6 +2207,57 @@
                }
             });
          });
+
+         (function(){
+const CHANGE_MS = 3500;
+function init(card){
+const slides = Array.from(card.querySelectorAll('.lsx-slide'));
+const dotsWrap = card.querySelector('.lsx-dots');
+const thumbsWrap = card.querySelector('.lsx-thumbs');
+const prev = card.querySelector('.lsx-prev');
+const next = card.querySelector('.lsx-next');
+let i = 0, timer = null;
+
+
+slides.forEach((s,n)=>{
+const dot = document.createElement('div');
+dot.className='lsx-dot'; dot.onclick=()=>go(n);
+dotsWrap.appendChild(dot);
+
+
+const t = document.createElement('img'); t.src=s.querySelector('img').src; t.onclick=()=>go(n);
+thumbsWrap.appendChild(t);
+});
+
+
+const dots = Array.from(dotsWrap.children);
+const thumbs = Array.from(thumbsWrap.children);
+
+
+function render(){
+slides.forEach((s,n)=>s.classList.toggle('lsx-active',n===i));
+dots.forEach((d,n)=>d.classList.toggle('lsx-active',n===i));
+thumbs.forEach((t,n)=>t.classList.toggle('lsx-active',n===i));
+}
+function go(n){i=(n+slides.length)%slides.length;render();}
+function nxt(){go(i+1);} function prv(){go(i-1);}
+
+
+prev.onclick=()=>{prv();reset()};
+next.onclick=()=>{nxt();reset()};
+
+
+function start(){stop();timer=setInterval(nxt,CHANGE_MS);}
+function stop(){if(timer)clearInterval(timer);}
+function reset(){stop();start();}
+
+
+render(); start();
+}
+
+
+document.querySelectorAll('.lsx-card').forEach(init);
+})();
       </script>
    </body>
 </html>
